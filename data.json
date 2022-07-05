@@ -1,0 +1,48 @@
+{
+    "player1":{
+      "id": 1,
+     "participantName": "Naba Zehra",
+    "location": "Karachi",
+     "units": 45,
+    "type_": "Running",
+     "points": 9,
+    "selectedDate": "10-June-1999"
+},
+"player2":{
+    "id": 2,
+   "participantName": "John Doe",
+  "location": "Los Angeles",
+   "units": 34,
+  "type_": "Walking",
+   "points": 5,
+  "selectedDate": "30-september-2012"
+},
+
+"player3":{
+    "id": 3,
+   "participantName": "abcd",
+  "location": "india",
+   "units": 42,
+  "type_": "Jogging",
+   "points": 19,
+  "selectedDate": "20-April-2022"
+},
+"player4":{
+    "id": 4,
+   "participantName": "John Angel",
+  "location": "Klarna",
+   "units": 4,
+  "type_": "Running",
+   "points": 91,
+  "selectedDate": "10-June-2011"
+},
+"player5":{
+    "id": 5,
+   "participantName": "Abraham Khan",
+  "location": "Bahadurabad",
+   "units": 23,
+  "type_": "Jogging",
+   "points": 12,
+  "selectedDate": "20-april-2022"
+}
+}
