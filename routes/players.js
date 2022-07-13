@@ -1,27 +1,26 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const playerSchema= require("../models/player");
+const {playerSchema}= require("../models/player");
 const moment = require("moment");
  const Player = mongoose.model("players", playerSchema);
  const ObjectId = require('mongodb').ObjectId;
-
+ var DateOnly = require('mongoose-dateonly')(mongoose);
 router.post("/:id", async (req, res) => {
-  const player = new Player({
+let player=await Player.create({
     id: req.params.id,
-    participantName: req.body.participantName,
-    location: req.body.location,
-    units: req.body.units,
-     type_: req.body.type_,
-    points: req.body.points,
-     selectedDate:req.body.selectedDate
-  });
-  console.log(req.body);
-console.log(player);
+        participantName: req.body.participantName,
+        location: req.body.location,
+        units: req.body.units,
+         type_: req.body.type_,
+        points: req.body.points,
+         selectedDate:moment(req.body.selectedDate, 'DD-MM-YYYY').format('MM/DD/YYYY')
+  })
 
-  const result = await player.save()
-    res.send(result);
-  
+
+    await player.save()
+  res.send(player);
+
  
 });
 

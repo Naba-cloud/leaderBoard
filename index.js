@@ -6,20 +6,20 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
+// app.use(bodyParser.json());
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: true,
+//   })
+// );
 mongoose.set("debug",(collectionName,doc,query,method)=>
 {
   console.log("CN",collectionName,"doc",doc,"query",query,"method",method);
 });
 mongoose.startSession();
 mongoose
-  .connect("mongodb+srv://name:password@cluster0.dz056bm.mongodb.net/test")
-  .then(() => {
+.connect("mongodb://localhost:27017")
+.then(() => {
     console.log("Connected to Mongodb...");
   })
   .catch((err) => {
