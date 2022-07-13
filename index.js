@@ -6,17 +6,6 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 app.use(cors());
 app.use(express.json());
-// app.use(bodyParser.json());
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   })
-// );
-mongoose.set("debug",(collectionName,doc,query,method)=>
-{
-  console.log("CN",collectionName,"doc",doc,"query",query,"method",method);
-});
-mongoose.startSession();
 mongoose
 .connect("mongodb://localhost:27017")
 .then(() => {
