@@ -6,6 +6,7 @@ const moment = require("moment");
  const Player = mongoose.model("players", playerSchema);
  const ObjectId = require('mongodb').ObjectId;
  var DateOnly = require('mongoose-dateonly')(mongoose);
+//  Create New Player Api
 router.post("/:id", async (req, res) => {
 let player=await Player.create({
     id: req.params.id,
@@ -24,7 +25,7 @@ let player=await Player.create({
  
 });
 
-  
+  // Get All The Players Api
  router.get("/", async(req,res)=>{
  try {
     const players = await Player.find().sort("participantName");
@@ -35,6 +36,7 @@ let player=await Player.create({
     console.log(error);
   }
  })
+//  Get One Player Api
 router.get("/:id",async(req,res)=>{
  
 
@@ -49,6 +51,7 @@ const id = req.params.id;
     console.log(error);
   }
 })
+// Delete Player Api
 router.delete("/:id", (req, res) => {
   const id=req.body.id;
  Player.deleteOne({ id: req.params.id }, (err) => {
@@ -59,12 +62,20 @@ router.delete("/:id", (req, res) => {
     }
   });
 });
-  router.put("/:id", async (req, res) => {
+// Player Points Increment Api
+  router.put("/incrementpoints/:id", async (req, res) => {
     const id = req.params.id;
-    const objectToUpdate = await Player.findOne({  _id: ObjectId(id) });
+    const objectToUpdate = await Player.findOne({  id:id });
+    objectToUpdate.points=req.body.points+1;
+     objectToUpdate.save();
     console.log(objectToUpdate);
-    console.log(req.body.participantName);
-    objectToUpdate.participantName = req.body.participantName;
+    res.send(objectToUpdate);
+  });
+  // Player Points decrement Api
+  router.put("/decrementpoints/:id", async (req, res) => {
+    const id = req.params.id;
+    const objectToUpdate = await Player.findOne({  id: id});
+    objectToUpdate.points = req.body.points-1;
      objectToUpdate.save();
     console.log(objectToUpdate);
     res.send(objectToUpdate);
