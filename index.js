@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 mongoose
-.connect("mongodb://localhost:27017")
+.connect("mongodb+srv://naba:naba1234@cluster0.dz056bm.mongodb.net/test")
 .then(() => {
     console.log("Connected to Mongodb...");
   })
