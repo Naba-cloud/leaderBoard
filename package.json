@@ -17,6 +17,7 @@
     "moment": "^2.29.3",
     "mongodb": "^4.6.0",
     "mongoose": "^6.4.3",
-    "mongoose-dateonly": "^1.0.6"
+    "mongoose-dateonly": "^1.0.6",
+    "nodemon": "^2.0.19"
   }
 }

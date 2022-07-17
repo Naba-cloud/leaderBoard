@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 var DateOnly = require('mongoose-dateonly')(mongoose);
 const playerSchema = new mongoose.Schema({
-  id: {type:Number,required:true},
+  // id: {type:Number},
   participantName:  {type:String,required:true},
    location:  {type:String,required:true},
   units:  {type:Number,required:true},
